@@ -1,0 +1,22 @@
+# -*- coding: utf8 -*-
+
+from selenium import webdriver
+
+browser = webdriver.PhantomJS()
+browser.get('https://viralstyle.com/lb5/my-heart-nov?utm_source=featured#pid=3&cid=441&sid=front')
+source = browser.page_source
+
+clrender = []
+namecl=['title="White"','title="Sand"','title="Light Pink"','title="Ash Grey"','title="Light Blue"','title="Azalea"','title="Sport Grey"','title="Daisy"','title="Lime"','title="Carolina Blue"','title="Heliconia"','title="Gold"','title="Orange"','title="Tennessee Orange"','title="Red"','title="Sapphire"','title="Electric Green"','title="Purple"','title="Royal"','title="Irish Green"','title="Dark Heather"','title="Maroon"','title="Navy"','title="Forest Green"','title="Black"','title="Classic Pink"','title="Safety Green"','title="Cherry Red"','title="Cardinal Red"','title="Charcoal"','title="Military Green"','title="Dark Chocolate"']
+hexcl =['#fcfcfc','#ffe9ba','#ffb2c4','#d6d7d9','#8cb4e8','#ff6dda','#999d9e','#f3fe2b','#79ff20','#5194bf','#8f1d59','#ffb502','#ff4902','#ff8400','#f30000','#0061c5','#00ac31','#490c95','#01298e','#008c35','#444545','#3b0018','#031037','#022d1b','#0b0b0b','#ffa8bf','#daff11','#b60000','#800000','#3b3b3b','#31432a','#140900']
+a = 0
+style =['label="Unisex Long Sleeve']
+
+for i in source.split():
+    a = 0
+    for j in namecl:
+        if i == j :
+            clrender.append(hexcl[a])
+        a += 1
+
+print(clrender)
