@@ -1,11 +1,9 @@
-clrender = ['#fcfcfc','#ffe9ba','#ffb2c4','#d6d7d9','#8cb4e8']
-renderhex = ''
-for i in clrender:
-    css = '<div class="tn4" style="background-color: %s "></div>' % (i)
-    renderhex = renderhex + css
-print (renderhex)
+from selenium import webdriver
 
-html = """Ahihi"""
-post = open(u'output.html','w')
-print (html)
-post.write(html)
+browser = webdriver.PhantomJS()
+browser.get('https://viralstyle.com/Adam-Baylin/2018-just-believe-that-#pid=1&cid=230&sid=front')
+source = browser.page_source
+browser.quit()
+
+
+print(source)

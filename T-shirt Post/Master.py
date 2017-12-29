@@ -11,6 +11,7 @@ url = str(input('Hãy nhập url Platform: \n'))
 browser = webdriver.PhantomJS()
 browser.get(url)
 source = browser.page_source
+browser.quit()
 
 clrender = []
 namecl=['title="White"','title="Sand"','title="Light Pink"','title="Ash Grey"','title="Light Blue"','title="Azalea"','title="Sport Grey"','title="Daisy"','title="Lime"','title="Carolina Blue"','title="Heliconia"','title="Gold"','title="Orange"','title="Tennessee Orange"','title="Red"','title="Sapphire"','title="Electric Green"','title="Purple"','title="Royal"','title="Irish Green"','title="Dark Heather"','title="Maroon"','title="Navy"','title="Forest Green"','title="Black"','title="Classic Pink"','title="Safety Green"','title="Cherry Red"','title="Cardinal Red"','title="Charcoal"','title="Military Green"','title="Dark Chocolate"']
@@ -33,7 +34,9 @@ tshirt = str(input('Hãy nhập tên của chiếc áo này ? \n'))
 money = str(input('Bao nhiêu Dola Trump một cái ? \n'))
 front = str(input('Mặt trước của áo trông ntn ? \n'))
 back = str(input ('Còn mặt sau có cái gì không ? \n'))
+detail = str(input ('Hãy nhập mô tả design ? \n'))
 pixel = str(input ('Track with facebook pixel ? \n'))
+
 
 html = """<div class="gia">""" + money + """</div>
 <!--more-->
@@ -75,11 +78,11 @@ html = """<div class="gia">""" + money + """</div>
         <div class="row">
             <div class="col-md-5 col-12">
                 <div class="tm16">
-                    <div class="tn1"><img src=\"""" + front + """\" alt=""></div>
-                    <div class="tn2 tsde"><img src=\"""" + back + """\" alt=""></div>
+                    <div class="tn1"><img src=\"""" + front + """\" alt=\"""" + detail + """\"></div>
+                    <div class="tn2 tsde"><img src=\"""" + back + """\" alt=\"""" + detail + """\"></div>
                     <div class="tn3">
-                        <div class="tn4"><a href="#."><img src=\"""" + front + """\" alt=""></a></div>
-                        <div class="tn5"><a href="#."><img src=\"""" + back + """ alt=""></a></div>
+                        <div class="tn4"><a href="#."><img src=\"""" + front + """\" alt=\"""" + detail + """\"></a></div>
+                        <div class="tn5"><a href="#."><img src=\"""" + back + """ alt=\"""" + detail + """\"></a></div>
                     </div>
                 </div>
                 <div class="tm36">
@@ -144,8 +147,11 @@ fbq('track', 'ViewContent', {
 </script>
 <div class="tm20"></div>"""
 
-post = open('output.html','w')
-post.write(html)
+#post = open('output.html','w')
+#post.write(html)
+
+with open('output.html', 'w') as post:
+    post.write(html)
 
 print ('All Done !')
 print ('-------------------------------')
