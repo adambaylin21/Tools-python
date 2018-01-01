@@ -1,7 +1,3 @@
-for i in range(0,10):
-    print (i)
-i = 0
-print ('_')
-while i < 10:
-    print (i)
-    i +=1
+key = {'a':'1','b':'2'}
+for ke in key:
+    print (key[ke])
