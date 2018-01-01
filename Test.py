@@ -1,9 +1,7 @@
-from selenium import webdriver
-
-browser = webdriver.PhantomJS()
-browser.get('https://viralstyle.com/Adam-Baylin/2018-just-believe-that-#pid=1&cid=230&sid=front')
-source = browser.page_source
-browser.quit()
-
-
-print(source)
+for i in range(0,10):
+    print (i)
+i = 0
+print ('_')
+while i < 10:
+    print (i)
+    i +=1
