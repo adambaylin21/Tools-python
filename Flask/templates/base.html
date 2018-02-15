@@ -1,12 +1,10 @@
 <html>
     <head>
-      {% if title %}
-      <title>{{ title }} - Microblog</title>
-      {% else %}
-      <title>Welcome to Microblog</title>
-      {% endif %}
+      <script type = "text/javascript"
+         src = "{{ url_for('static', filename = 'hello.js') }}" ></script>
     </head>
     <body>
+      <input type = "button" onclick = "sayHello()" value = "Say Hello" />
     <div>
     Microblog:
     <a href="/index">Home</a>
