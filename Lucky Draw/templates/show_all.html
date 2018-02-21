@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head></head>
+   <body>
+
+      <h3>
+         <a href = "{{ url_for('show_all') }}">Comments - Flask
+            SQLAlchemy example</a>
+      </h3>
+
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+
+      <h3>Students (<a href = "{{ url_for('new') }}">Add Student
+         </a>)</h3>
+
+      <table>
+         <thead>
+            <tr>
+               <th>ID</th>
+               <th>Tên khách hàng</th>
+               <th>Số điện thoại</th>
+               <th>Số sản phẩm</th>
+               <th>Mã dự thưởng</th>
+               <th>Thời gian tham gia</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for data in datax %}
+               <tr>
+                  <td>{{ data.id }}</td>
+                  <td>{{ data.tenkh }}</td>
+                  <td>{{ data.sdt }}</td>
+                  <td>{{ data.sosp }}</td>
+                  <td>{{ data.code }}</td>
+                  <td>{{ data.time }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+
+   </body>
+</html>
