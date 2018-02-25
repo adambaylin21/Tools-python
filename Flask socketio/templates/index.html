@@ -1,0 +1,39 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script
+    src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <title>Chat room</title></head>
+<body>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+       var socket = io.connect('http://127.0.0.1:5000');
+
+       <!--socket.on ('connect',function() {-->
+          <!--socket.send ('Ban da duoc ket noi!');-->
+       <!--});-->
+
+       socket.on ('message',function(msg) {
+          $('#messager').append('<li>'+ msg +'</li>');
+       });
+       $('#start').on('click',function (start) {
+          socket.send('nguoidungdaclick');
+       });
+
+       $('#sendbutton').on('click', function (msg) {
+           socket.send($('#myMessager').val());
+           $('#myMessager').val('');
+       });
+
+    });
+</script>
+    <ul id="messager"></ul>
+    <ul id="messagex"></ul>
+    <input type="text" id ="myMessager">
+    <button id='sendbutton'>Sent </button>
+    <button id='start'>Start</button>
+</body>
+</html>
