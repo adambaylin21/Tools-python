@@ -1,11 +1,7 @@
-class Bankacc:
-    rate = 0.0
-    @staticmethod
-    def setrate(newrate):
-        Bankacc.rate = newrate
-
-acb = Bankacc()
-Bankacc.setrate(0.1)
-
-print (acb.rate)
-
+import random
+for i in range (10):
+    name = 'Luxury'
+    char = random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+    char2 = random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+    code = ('{0}-{1}{2}{3:04}'.format( name,char,char2,i))
+    print (code)
