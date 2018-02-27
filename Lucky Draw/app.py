@@ -2,6 +2,7 @@ from flask import Flask, request, flash, url_for, redirect, render_template
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///luxuryfan.db'
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'False'
@@ -23,6 +24,13 @@ def __init__ (self,tenkh,sdt,sosp,time):
    self.sosp = sosp
    self.time = time
 
+def scode(code):
+    
+
+    
+
+
+    
 
 @app.route('/')
 def show_all():
@@ -36,9 +44,11 @@ def new():
         if not request.form['name'] or not request.form['sdt'] or not request.form['sosp']:
             flash('Vui lòng nhập dữ liệu vào tất cả các ô', 'thiếu dữ liệu')
         else:
+            gencode = scode(request.form['sosp'])
             data = datax(tenkh=request.form['name'], sdt=request.form['sdt'],
                                sosp = request.form['sosp'], time = present)
-
+            
+            
             db.session.add(data)
             db.session.commit()
 
@@ -49,3 +59,4 @@ def new():
 if __name__ == '__main__':
    # db.create_all()
    app.run(debug = True)
+    
