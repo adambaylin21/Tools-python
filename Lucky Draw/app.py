@@ -7,6 +7,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///luxuryfan.db'
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'False'
 app.config['SECRET_KEY'] = "what do you mean"
+app.config['SERVER_NAME'] = 'example.com'
 
 db = SQLAlchemy(app)
 present = datetime.now().strftime('%H:%M %d-%m-%Y')
