@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Luxuryfan - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet/less" href="{{ url_for('static', filename='css/master.less') }}">
+    <script src="{{ url_for('static', filename='js/less.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+    {% endblock %}
+</head>
+
+<body>
+    {% block menu %}
+    <div class="menu">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-2 mr-auto">
+            <div class="logo">
+                <a href="/"><img src="{{ url_for('static',filename='img/logo.png')}}" alt="Logo Luxuryfan"></a>
+            </div>
+            </div>
+            <div class="col-2"></div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    
+    {% block content %}{% endblock %}
+    
+    {% block footer %}
+        <div class="container-fluid">
+            <div class="footer">
+            &copy; Copyright 2018 - Adam Baylin
+        </div>
+        </div>
+    {% endblock %}
+</body>
+
+</html>

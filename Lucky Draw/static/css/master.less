@@ -1,0 +1,94 @@
+//Code & Design by Adam Baylin
+* {
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family:avo;
+    src:url(../fonts/Avo.ttf);
+}
+@font-face {
+    font-family:avob;
+    src:url(../fonts/AvoBold.ttf);
+}
+@den: #1B1617;
+@vang: #FBD62A;
+@trang: #fff;
+
+.maxw {
+    width: 100%;
+}
+.upptext {
+    text-transform: uppercase;
+}
+.fonta(@px){
+    font-family:avo;
+    font-size: (@px);
+}
+.lk_bg(@color) {
+    background-color: @color;
+}
+.menu {
+    .lk_bg(@den);
+    .logo {
+        img {
+            width: 200px;
+            padding: 10px 0;
+        }
+    }
+}
+.lk_title {
+    .fonta(26px);
+    color: @den;
+    .upptext;
+    padding-top: 35px;
+    
+}
+.lk_title2 {
+    .fonta(18px);
+    .upptext;
+    margin-bottom: 20px;
+    a {
+        text-decoration: none;
+        color: #E12D53;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+.table_lk {
+    td,th {
+        border: 1px solid @den;
+        padding: 10px;
+    }
+    .lk1 {
+        .upptext;
+        .fonta(18px);
+        .lk_bg(@vang);
+    }
+}
+.footer {
+    .fonta(14px);
+    color: @vang;
+    padding: 20px;
+    
+}
+.form_lk {
+    label {
+        padding-top: 10px;
+        .upptext;
+    }
+    input {
+        width: 250px;
+        padding: 5px;
+    }
+    .sb_btn {
+        width: 160px;
+        .lk_bg(@vang);
+        border: none;
+        margin: 28px 0;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

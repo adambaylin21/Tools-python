@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html>
-  <head>
-      <link rel="stylesheet/less" href="">
-  </head>
+<html lang="en">
+    {% extends "base.html" %}
+    {% block headx %}
+    {% block title %}Thêm mới khách hàng{% endblock title %}
+    {% endblock headx %}
    <body>
-
-      <h3>Thêm mới khách hàng</h3>
+        {% block content %}
+     <div class="container-fluid">
+          <div class="row">
+              <div class="col">
+                  <h3 class="lk_title">Thêm mới khách hàng</h3>
+              </div>
+         </div>
       <hr/>
-
+     
       {%- for category, message in get_flashed_messages(with_categories = true) %}
          <div class = "alert alert-danger">
             {{ message }}
          </div>
       {%- endfor %}
-
-      <form action = "{{ request.path }}" method = "post">
+    <div class="row">
+      <div class="col">
+          <form class="form_lk" action = "{{ request.path }}" method = "post">
          <label for = "name">Tên khách hàng</label><br>
          <input type = "text" name = "name" placeholder = "Nguyễn Văn A" /><br>
          <label for = "email">Số điện thoại</label><br>
@@ -24,8 +31,11 @@
          <!--<textarea name = "addr" placeholder = "addr"></textarea><br>-->
          <!--<label for = "PIN">City</label><br>-->
          <!--<input type = "text" name = "pin" placeholder = "pin" /><br>-->
-         <input type = "submit" value = "Submit" />
+         <input class="sb_btn" type = "submit" value = "Thêm Mới" />
       </form>
-
+      </div>
+          </div>
+     </div>
+     {% endblock %}
    </body>
 </html>

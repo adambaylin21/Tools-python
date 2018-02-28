@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang = "en">
-   <head>
-       <title> Luxuryfan - Mua quạt trần Mỹ, Vi vu Hoa Kỳ</title>
-       <link rel="stylesheet/less" href="{{ url_for('static', filename='css/master.less') }}">
-       <script src="{{ url_for('static', filename='js/less.min.js') }}"></script>
-       <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
-   </head>
+
+        {% extends "base.html" %}
+        
+        {% block headx %}
+        {% block title %}Tool nhập dữ liệu khách hàng{% endblock title %}
+        {% endblock headx %}
+
    
    <body>
-      <h3>
-         <h3>Nhập dữ liệu khách hàng</h3>
+        {% block content %}
+      <div class="container-fluid">
+      <h3 class="lk_title">
+         Nhập dữ liệu khách hàng
       </h3>
 
       <hr/>
@@ -17,12 +20,12 @@
          {{ message }}
       {%- endfor %}
 
-      <h3>Danh sách khách hàng (<a href = "{{ url_for('new') }}">Thêm Mới
+      <h3 class="lk_title2">Danh sách khách hàng (<a href = "{{ url_for('new') }}">Thêm Mới
          </a>)</h3>
 
-      <table>
+      <table class="table_lk">
          <thead>
-            <tr>
+            <tr class="lk1">
                <th>ID</th>
                <th>Tên khách hàng</th>
                <th>Số điện thoại</th>
@@ -42,9 +45,12 @@
                   <td>{{ data.code }}</td>
                   <td>{{ data.time }}</td>
                </tr>
+               
+               
             {% endfor %}
          </tbody>
       </table>
-
+      </div>
+    {% endblock %}
    </body>
 </html>
