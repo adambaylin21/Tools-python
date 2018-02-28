@@ -1,7 +1,7 @@
 from flask import Flask, request, flash, url_for, redirect, render_template
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-
+from getcode import *
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///luxuryfan.db'
@@ -17,20 +17,15 @@ class datax(db.Model):
    sdt = db.Column(db.String(50))
    sosp = db.Column(db.String(50))
    time = db.Column(db.String(50))
+   code = db.Column(db.String(200))
 
-def __init__ (self,tenkh,sdt,sosp,time):
+def __init__ (self,tenkh,sdt,code,sosp,time):
    self.tenkh = tenkh
    self.sdt = sdt
    self.sosp = sosp
    self.time = time
+   self.code = code
 
-def scode(code):
-    
-
-    
-
-
-    
 
 @app.route('/')
 def show_all():
@@ -44,11 +39,10 @@ def new():
         if not request.form['name'] or not request.form['sdt'] or not request.form['sosp']:
             flash('Vui lòng nhập dữ liệu vào tất cả các ô', 'thiếu dữ liệu')
         else:
-            gencode = scode(request.form['sosp'])
+            sospx = int(request.form['sosp'])
+            gencode = str(lay_code(sospx))
             data = datax(tenkh=request.form['name'], sdt=request.form['sdt'],
-                               sosp = request.form['sosp'], time = present)
-            
-            
+              code = gencode, sosp = request.form['sosp'], time = present)
             db.session.add(data)
             db.session.commit()
 
