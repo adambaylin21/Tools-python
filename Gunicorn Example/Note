@@ -1,0 +1,17 @@
+testapp.service
+/etc/systemd/system/testapp.service
+
+[Unit]
+Description=Gunicorn App
+After=network.target
+
+[Service]
+User=baylin
+Group=www-data
+WorkingDirectory=/home/baylin/Downloads/Test
+ExecStart=/bin/bash /home/baylin/Downloads/Test/run.sh
+
+
+[Install]
+WantedBy=multi-user.target
+
