@@ -12,15 +12,12 @@
 
        var socket = io.connect('http://127.0.0.1:5000');
 
-       <!--socket.on ('connect',function() {-->
-          <!--socket.send ('Ban da duoc ket noi!');-->
-       <!--});-->
-
        socket.on ('message',function(msg) {
           $('#messager').append('<li>'+ msg +'</li>');
        });
+
        $('#start').on('click',function (start) {
-          socket.send('nguoidungdaclick');
+          socket.send('start');
        });
 
        $('#sendbutton').on('click', function (msg) {
