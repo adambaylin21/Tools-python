@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: "微软雅黑", "黑体", arial;
+    font-family: sans-serif;
 }
 
 html {
@@ -153,14 +153,10 @@ html {
 }
 
 body {
-    background: #FFC21C;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+    background-image: url(img/bg.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
     overflow: hidden;
-    color: white;
-    text-align: center;
 }
 
 body > div {
@@ -168,7 +164,7 @@ body > div {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -300px auto auto -400px;
+    margin: -340px auto auto -400px;
     width: 800px;
     height: 600px;
 }
@@ -195,22 +191,19 @@ body > div > section {
 }
 
 body > div > section #luckyDrawing {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 200px;
-    height: 100px;
-    margin-left: -100px;
-    margin-top: -50px;
+   padding-top: 65px;
 }
 
 body > div > section #luckyDrawing input {
     width: 100%;
     height: 100%;
-    font-size: 4rem;
+    font-size: 1.5rem;
     padding: 1rem;
     box-sizing: border-box;
     text-align: center;
+    background: none;
+    border: none;
+
 }
 
 body > div > section > #result {
@@ -244,7 +237,7 @@ body > div > section > #result > div > span > b {
 
 body > div > section > #result > div.p1 > span {
     width: 100%;
-    font-size: 8rem;
+    font-size: 3rem;
 }
 
 body > div > section > #result > div.p2 > span {
@@ -330,7 +323,8 @@ body > div > footer > div > button {
 body > div > footer > div > button#btnStart {
     width: 361px;
     margin-right: 16px;
-    color: white;
+    color: #1B1617;
+    font-size: 1.2rem;
 }
 
 body > div > footer > div > button#btnReset {

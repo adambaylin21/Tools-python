@@ -16,7 +16,9 @@ def getluckyx(data):
         if data == 'max':
             return ('Tất cả có : %s người chơi ' % maxtrust(conn))
         if data == 'full':
-            return (datadraw)
+            # print (datadraw)
+            for i in range (0,len(datadraw)):
+                print (datadraw[i],';',end="")
 
 # Lucky Draw
 def reward(data):
@@ -38,7 +40,7 @@ def fullcode(full):
     for i in full:
         j = literal_eval(i[4])
         for y in range(0, len(j)):
-            codef.append('Khách hàng: %s, SĐT: %s, Mã số dự thưởng: %s' % (i[1], i[2], j[y]))
+            codef.append('Name:%s, Tel:%s, Code:%s' % (i[1], i[2], j[y]))
     return codef
 
 # Danh sách người chơi
@@ -81,4 +83,4 @@ def min_check(db_name):
         return int(x[0])
 
 if __name__ == "__main__":
-    getlucky()
+    getluckyx("full")
