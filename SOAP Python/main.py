@@ -5,7 +5,12 @@ import base64
 url="http://sms.8x77.vn:8077/mt-services/MTService?wsdl"
 headers = {'content-type': 'application/soap+xml'}
 # headers = {'content-type': 'text/xml'}
-messenger = base64.b64encode(b'Chuc Mung Quy Khach Trung Chuyen Du Lich My 2 Nguoi')
+
+
+
+
+smstext = b"Hello"
+messenger = base64.b64encode(smstext)
 body1 = """
 <!--REQUEST.................-->
 <env:Envelope  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
@@ -32,8 +37,8 @@ body2 = """</string0>
  </env:Body>
 </env:Envelope>"""
 body = (body1 + messenger.decode("utf-8") + body2)
-response = requests.post(url,data=str(body),headers=headers,auth=('luxuryfan', 'bxluxur@678#'))
-print (response.content)
-with open('output.xml', 'w') as post:
-    post.write(str(response.content))
+# response = requests.post(url,data=str(body),headers=headers,auth=('luxuryfan', 'bxluxur@678#'))
+# print (response.content)
+# with open('output.xml', 'w') as post:
+#     post.write(str(response.content))
 print (messenger)
