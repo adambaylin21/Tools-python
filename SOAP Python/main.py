@@ -1,22 +1,11 @@
 import requests
 from requests.auth import HTTPBasicAuth
 import base64
-from xml.dom import minidom
-
-def getNodeText(node):
-
-    nodelist = node.childNodes
-    result = []
-    for node in nodelist:
-        if node.nodeType == node.TEXT_NODE:
-            result.append(node.data)
-    return ''.join(result)
 
 url="http://sms.8x77.vn:8077/mt-services/MTService?wsdl"
 headers = {'content-type': 'application/soap+xml'}
 # headers = {'content-type': 'text/xml'}
-messenger = base64.b64encode(b'84964133556')
-
+messenger = base64.b64encode(b'Chuc Mung Quy Khach Trung Chuyen Du Lich My 2 Nguoi')
 body1 = """
 <!--REQUEST.................-->
 <env:Envelope  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
@@ -27,7 +16,7 @@ body1 = """
  </env:Header>
  <env:Body   env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
   <m:sendMT    xmlns:m="MTService">
-   <string     xsi:type="xsd:string">84964133556</string>
+   <string     xsi:type="xsd:string">0972937793</string>
    <string0     xsi:type="xsd:string">"""
 
 body2 = """</string0>
@@ -42,14 +31,9 @@ body2 = """</string0>
   </m:sendMT>
  </env:Body>
 </env:Envelope>"""
-
-body = body1 + (messenger).decode('utf-8') + body2
-response = requests.post(url,data=body,headers=headers,auth=('luxuryfan', 'bxluxur@678#'))
-
+body = (body1 + messenger.decode("utf-8") + body2)
+response = requests.post(url,data=str(body),headers=headers,auth=('luxuryfan', 'bxluxur@678#'))
+print (response.content)
 with open('output.xml', 'w') as post:
-    post.write((response.content).decode('utf-8'))
-
-xmldoc = minidom.parse('output.xml')
-itemlist = xmldoc.getElementsByTagName("result")[0]
-print(getNodeText(itemlist))
-
+    post.write(str(response.content))
+print (messenger)
