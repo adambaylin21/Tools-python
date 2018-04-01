@@ -13,18 +13,20 @@ present = datetime.now().strftime('%H:%M %d-%m-%Y')
 
 class datax(db.Model):
    id = db.Column('id', db.Integer, primary_key = True)
-   tenkh = db.Column(db.String(100))
-   sdt = db.Column(db.String(50))
-   sosp = db.Column(db.String(50))
-   time = db.Column(db.String(50))
-   code = db.Column(db.String(200))
+   tenkh = db.Column(db.String())
+   sdt = db.Column(db.String())
+   sosp = db.Column(db.String())
+   time = db.Column(db.String())
+   code = db.Column(db.String())
+   sms = db.Column(db.String())
 
-def __init__ (self,tenkh,sdt,code,sosp,time):
+def __init__ (self,tenkh,sdt,code,sosp,time,sms):
    self.tenkh = tenkh
    self.sdt = sdt
    self.sosp = sosp
    self.time = time
    self.code = code
+   self.sms = sms
 
 
 @app.route('/')
@@ -42,7 +44,7 @@ def new():
             sospx = int(request.form['sosp'])
             gencode = str(lay_code(sospx))
             data = datax(tenkh=request.form['name'], sdt=request.form['sdt'],
-              code = gencode, sosp = request.form['sosp'], time = present)
+              code = gencode, sosp = request.form['sosp'], time = present, sms = '0')
             db.session.add(data)
             db.session.commit()
 
