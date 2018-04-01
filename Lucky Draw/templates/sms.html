@@ -12,7 +12,7 @@
         {% block content %}
       <div class="container-fluid">
       <h3 class="lk_title">
-         Nhập dữ liệu khách hàng
+         Danh sách chưa gửi sms
       </h3>
 
       <hr/>
@@ -20,8 +20,7 @@
          {{ message }}
       {%- endfor %}
 
-      <h3 class="lk_title2">Danh sách khách hàng (<a href = "{{ url_for('new') }}">Thêm Mới
-         </a> <p> | </p> <a href="{{ url_for('sms_sent') }}">Xem SMS Chưa Gửi</a></h3> )
+      <h3 class="lk_title2"> Gửi tin nhắn cho khách hàng (<a href = "{{ url_for('has_sent') }}">Gửi </a>)</h3>
 
       <table class="table_lk">
          <thead>
@@ -32,6 +31,7 @@
                <th>Số sản phẩm</th>
                <th>Mã dự thưởng</th>
                <th>Thời gian tham gia</th>
+               <th>Đã gửi sms</th>
             </tr>
          </thead>
 
@@ -44,6 +44,7 @@
                   <td>{{ data.sosp }}</td>
                   <td>{{ data.code }}</td>
                   <td>{{ data.time }}</td>
+                  <td>{{ data.sms }}</td>
                </tr>
                
                

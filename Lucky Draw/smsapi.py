@@ -17,7 +17,7 @@ def sendsms(text,phone):
 
     # Edit to 0 if run in server
     if getNodeText(itemlist) == '-4':
-        print ('Done') 
+        return ('Done') 
 
 
 # Get val Node Text
