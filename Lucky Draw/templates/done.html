@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+        {% extends "base.html" %}
+        
+        {% block headx %}
+        {% block title %}Tool nhập dữ liệu khách hàng{% endblock title %}
+        {% endblock headx %}
+
+   
+   <body>
+        {% block content %}
+      <div class="container-fluid">
+      <h3 class="lk_title">
+         Kết quả gửi tin nhắn
+      </h3>
+
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+
+      <h3 class="lk_title2">  Danh dách tin nhắn chưa được gửi: </h3>
+
+      <table class="table_lk">
+         <thead>
+            <tr class="lk1">
+               <th>ID</th>
+               <th>Tên khách hàng</th>
+               <th>Số điện thoại</th>
+               <th>Số sản phẩm</th>
+               <th>Mã dự thưởng</th>
+               <th>Thời gian tham gia</th>
+               <th>Đã gửi sms</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for data in datax %}
+               <tr>
+                  <td>{{ data.id }}</td>
+                  <td>{{ data.tenkh }}</td>
+                  <td>{{ data.sdt }}</td>
+                  <td>{{ data.sosp }}</td>
+                  <td>{{ data.code }}</td>
+                  <td>{{ data.time }}</td>
+                  <td>{{ data.sms }}</td>
+               </tr>
+               
+               
+            {% endfor %}
+         </tbody>
+      </table>
+      </div>
+    {% endblock %}
+   </body>
+</html>

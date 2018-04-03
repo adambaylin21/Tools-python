@@ -18,6 +18,7 @@ def lay_code(slsp):
             code_mark(conn,slsp,mx_trust)
             code = get_code(conn,slsp,mx_trust)
             return code
+            print (code)
         else:
             print ('Database không đủ code')
 
@@ -65,18 +66,17 @@ def pha_tr(conn,idmax):
     cur = conn.cursor()
     cur.execute(sql,('1',idmax,))
 
+
 # Check code chưa dùng
 def check_max(conn,idmax):
     sql = ''' SELECT * FROM CodeG WHERE id=? '''
     cur = conn.cursor()
     x = cur.execute(sql,(idmax,)).fetchone()
-    # Điều kiện check ở đây
     if x[2] == '1':
         idmax -= 1
-        check_max(conn,idmax)
+        return check_max(conn,idmax)
     else:
-        return idmax
-    return check_max(conn,idmax)
+        return (idmax)
 
 # slsp -> code
 def get_code(conn,slsp,mx_trust):
