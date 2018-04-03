@@ -7,7 +7,7 @@ box-sizing: border-box;
 }
 body {
 font-family: Arial;
-background-color: #3498DB;
+background-color: #1B1617;
 padding: 50px;
 }
 .login {
@@ -22,7 +22,7 @@ border-radius: 5px
  
 .app-title {
 text-align: center;
-color: #777;
+color: #1B1617;
 }
  
 .login-form {
@@ -51,7 +51,7 @@ box-shadow: none;
  
 .btn {
   border: 2px solid transparent;
-  background: #3498DB;
+  background: #FBD62A;
   color: #ffffff;
   font-size: 16px;
   line-height: 25px;
@@ -67,7 +67,7 @@ box-shadow: none;
 }
  
 .btn:hover {
-  background-color: #2980B9;
+  background-color: #F7C906;
 }
  
 .login-link {
