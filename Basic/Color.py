@@ -16,11 +16,7 @@ for i in choised:
     try:
         if int(i):
             rendercl.append(color[int(i)])
-    except TypeError:
-        pass
-    except ValueError:
-        pass
-    except IndexError:
+    except TypeError, ValueError,IndexError:
         pass
 
 print (rendercl)
