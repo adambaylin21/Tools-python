@@ -8,7 +8,8 @@ def where_mf(where):
 
 def get_upload(where):
     a = os.listdir(where)
-    a.sort(key=lambda f: int(filter(str.isdigit, f)))
+    if len(a) > 1:
+        a.sort(key=lambda f: int(filter(str.isdigit, f)))
     return a
 
 def open_file(stt,filename):
