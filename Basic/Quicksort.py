@@ -19,11 +19,13 @@ def sosanh(list,left,right):
             list[i],list[j] = list[j],list[i]
     list[left],list[j] = list [j],list[left]
     return j
+    
 def quicksort(list,left,right):
     if left < right:
         z = sosanh(list, left, right)
         quicksort(list,left,z-1)
         quicksort(list,z+1,right)
+
 try:
     quicksort(nList,0,len(nList)-1)
 except :
