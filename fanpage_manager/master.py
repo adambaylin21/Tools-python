@@ -11,7 +11,7 @@ def where_mf(where):
     return abs_file_path
 
 # Page Self Reflected
-token = 'EAAVgZCjOwCecBAFftoYKJE7qA10hiWbjMZB7q0IWYJe8rzSTyacpT5oZC3w9LBzbXT1wAMEdUyLSU0ZAhofXnGZABqmA4q4fr34phZCjZAaQfZCAaBvKLWXZC3VzF2vKmliTdKOaumwjbhN3ZAR04nWyeztO0DojacUm6B1eQMDDluLaI4uwx7bhardVvIU7T6BizKMwFV17g4AOfNdcQpbDCa'
+token = ''
 page_id = '1928385924086493'
 
 def get_file(where):
